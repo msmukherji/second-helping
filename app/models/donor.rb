@@ -3,4 +3,7 @@ class Donor < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many   :donations
+  belongs_to :organization
 end
