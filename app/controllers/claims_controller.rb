@@ -1,0 +1,3 @@
+class ClaimsController < ApplicationController
+  
+end
