@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.background {
+	width: 100%;
+}
+
+.sky {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+}
+
+.header {
+	width: 100%;
+	height: 15%;
+	background-color: #5b5b5b;
+	position: absolute;
+	top: 50px;
+}
+
+.logos {
+	position: absolute;
+	height: 130px;
+	width: 50%;
+	top: -15px;
+}
+
+.logo-image {
+	position: absolute;
+	height: 200px;
+	top: -20px;
+	left: 20px;
+}
+
+.logo-name {
+	position: absolute;
+	top: 6px;
+	left: 170px;
+	height: 110px;
+}
+
+.sign-in-container {
+	width: 50%;
+	position: absolute;
+	display: inline-block;
+	right: 0px;
+}
+
+.donor-sign-in {
+	width: 40%;
+	height: 100px;
+	display: inline-block;
+	position: relative;
+}
+
+.donor-sign-in-heading {
+	font-family: Verdana;
+	padding: 5px;
+}
+
+.inputs {
+	font-family: Verdana;
+	padding: 3px;
+}
+
+.new-user {
+	font-family: Verdana;
+	text-decoration: none;
+	display: block;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+.recipient-sign-in {
+	width: 40%;
+	height: 100px;
+	display: inline-block;
+	position: relative;
+}
+
+.recipient-sign-in-heading {
+	font-family: Verdana;
+	padding: 5px;
+}
+
+.mission {
+	position: absolute;
+	width: 25%;
+	top: 35%;
+	left: 15%;
+	font-family: Verdana;
+	line-height: 1.5;
+	color: #E0AB4E;
+}
+
+.bottom-image {
+	position: absolute;
+	bottom: 0px;
+	height: 400px;
+	width: 100%;
+}
+
+.bottom-left {
+	position: absolute;
+	bottom: 0px;
+	height: 25%;
+	right: 59%;
+}
+
+.bottom-center {
+	position: absolute;
+	bottom: 0px;
+	height: 100%;
+	right: 20%;
+}
+
+.good-samaritan-link {
+	position: absolute;
+	bottom: 0px;
+	font-family: Verdana;
+	text-decoration: none;
+	display: block;
+	color: #FFFFFF;
+	padding: 10px;	
+	right: 35%;
+}
+
+.bottom-right {
+	position: absolute;
+	bottom: 0px;
+	height: 100%;
+	right: 0px;
+}

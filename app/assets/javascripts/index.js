@@ -1,7 +1,8 @@
-var helperApp = angular.module("helperApp", ["ui.router"])
+/*var helperApp = angular.module("helperApp", ["ui.router"])
 
 helperApp.config([ "$stateProvider", "urlRouteProvider", function($stateProvider, $urlRouteProvider){
 
+  console.log(1)
 	$urlRouteProvider.otherwise("/")
 
 	$stateProvider
@@ -121,3 +122,4 @@ trackerApp.factory("getData", [ "$http", function($http){
 	
 }])
 
+*/
