@@ -43,6 +43,15 @@ describe ClaimsController do
     expect(claim.approved?).to eq false
   end
 
-  it "requires donors to be logged in to approve claims"
+  fit "requires donors to be logged in to approve claims" do
+    claim = FactoryGirl.create :claim
+    donor = FactoryGirl.create :donor
+    post :confirm, claim_id: claim.id
+
+    expect(response.code.to_i).to eq 404
+    expect(json["error"]).to eq "not found"
+    claim.reload
+    expect(claim.approved?).to eq false
+  end
 
 end

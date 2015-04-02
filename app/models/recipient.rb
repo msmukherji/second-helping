@@ -8,8 +8,8 @@ class Recipient < ActiveRecord::Base
 end
 
 
-class Recipient::ParameterSanitizer < Devise::ParameterSanitizer
-  def sign_in
-    default_params.permit(:username, :email) # other stuff here
-  end
-end
+# class Recipient::ParameterSanitizer < Devise::ParameterSanitizer
+#   def sign_in
+#     default_params.permit(:username, :email) # other stuff here
+#   end
+# end

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :recipients
-  devise_for :donors
+  devise_for :recipients, controllers: {registrations: 'recipients/registrations'}
+  devise_for :donors, controllers: {registrations: 'donors/registrations'}
 
   root 'application#index'
 
-  get '/donations'                => 'donations#show_all'
+  get '/donations'                => 'donations#index'
   get '/donations/:donation_id'   => 'donations#show'
   get '/donors/donation'          => 'donations#new'
   post '/donors/donation'         => 'donations#create'

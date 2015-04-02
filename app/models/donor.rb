@@ -9,9 +9,9 @@ class Donor < ActiveRecord::Base
 end
 
 
-class Donor::ParameterSanitizer < Devise::ParameterSanitizer
-  def sign_in
-    default_params.permit(:username, :email) # add the other stuff here
-  end
-end
+# class Donor::ParameterSanitizer < Devise::ParameterSanitizer
+#   def sign_in
+#     default_params.permit(:username, :email) # add the other stuff here
+#   end
+# end
 # is this the thing i'm supposed to use?
