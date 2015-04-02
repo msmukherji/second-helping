@@ -15,8 +15,13 @@ before_action :authenticate_donor!, except: [:create]
 
   def confirm
     claim = Claim.find params[:claim_id]
-    claim.update! approved: true
-    render json: { status: :ok }
+    if claim.donation.donor == current_donor
+      claim.update! approved: true
+      render json: { status: :ok }
+    else
+      render json: { error: "not found" }, status: 404
+    end
+    
     # send notification to recipient
   end
 

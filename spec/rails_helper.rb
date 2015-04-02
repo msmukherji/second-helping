@@ -58,7 +58,7 @@ RSpec.configure do |config|
       sign_in person
     end
 
-    def response_json
+    def json
       JSON.parse response.body
     end
   end
