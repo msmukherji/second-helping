@@ -1,10 +1,4 @@
-<% if resource_name == :donor %>
-  <% render partial: 'donor_new' %>
-<% else %>
-  <% render partial: 'recipient_new' %>
-<% end %>
-
-<!-- <h2>Sign up</h2>
+<h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -32,4 +26,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %> -->
+<%= render "devise/shared/links" %>

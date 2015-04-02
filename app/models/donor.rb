@@ -7,3 +7,5 @@ class Donor < ActiveRecord::Base
   has_many   :donations
   belongs_to :organization
 end
+
+
