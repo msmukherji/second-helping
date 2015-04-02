@@ -28,6 +28,6 @@ before_action :authenticate_donor!, except: [:create]
     # send notification to recipient
   end
 
-
+# figure out flash messages for not authenticated, etc.
 end
 

@@ -5,26 +5,26 @@ class DonationsController < ApplicationController
 
   def index
     @donations = Donation.all
-    render :index
+    render json: :index
   end
 
   def show
     @donation = Donation.find(params[:donation_id])
-    render :show
+    render json: :show
   end
 
   def new
     @donor_org = current_donor.organization
     #@donor_org = Donor.first.organization
-    render :new
+    render json: :new
   end
 
   def create
     @donation = Donation.create! name: params[:name], description: params[:description], 
-      requirements: params[:requirements], donor_id: current_donor.id,
-      contact_number: params[:contact_number], auto_confirm: params[:auto_confirm]
+      requirements: params[:requirements], donor_id: current_donor.id, 
+      auto_confirm: params[:auto_confirm]
 
-    render :create
+    render json: :create
   end
 
 end
