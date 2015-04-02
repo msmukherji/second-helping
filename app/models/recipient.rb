@@ -6,3 +6,10 @@ class Recipient < ActiveRecord::Base
 
   has_many :claims
 end
+
+
+class Recipient::ParameterSanitizer < Devise::ParameterSanitizer
+  def sign_in
+    default_params.permit(:username, :email) # other stuff here
+  end
+end
