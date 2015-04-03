@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
+    @recipient = current_recipient
+    @donor = current_donor
   end
   
 end
