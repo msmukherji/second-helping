@@ -47,3 +47,13 @@ input[type="submit"] {
     color: #EEEEEE;
     font-size: 15px;
 }
+
+.notice {
+	padding-left: 5px;
+	color: red;
+}
+
+.alert {
+	padding-left: 5px;
+	color: red;
+}
