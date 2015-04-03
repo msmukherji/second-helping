@@ -1,4 +1,4 @@
-class ClaimsController < ApplicationController
+cclass ClaimsController < ApplicationController
 before_action :authenticate_recipient!, except: [:show, :confirm]
 before_action :authenticate_donor!, except: [:create]
 

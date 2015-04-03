@@ -14,18 +14,16 @@ class Donor < ActiveRecord::Base
   end
 
   def approve_claim claim
-    if claim.donation.donor.id == self.id
-      # ^^ redundant?  do i need to check this in both
-      # model and controller?
-      claim.update! approved: true
-      send_mailer claim
-    else
-      return false
-    end
+    raise "Can't approve other's donation" unless claim.donation.donor_id == id
+    # ^^ redundant?  do i need to check this in both
+    # model and controller?
+    claim.update! approved: true
+    notify_confirmed claim
   end
 
-  def send_mailer claim
-
+  def notify_confirmed claim
+    mailer = DonorMailer.confirm_claim claim
+    mailer.deliver_later
   end
 
 
