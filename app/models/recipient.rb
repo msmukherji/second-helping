@@ -5,4 +5,11 @@ class Recipient < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :claims
+
+  def claim_donation donation
+    unless Claim.find_by(donation_id: donation.id) && Claim.find_by(donation_id: donation.id).approved? == true
+      Claim.create! donation_id: donation.id, recipient_id: self.id
+    end
+  end
+
 end

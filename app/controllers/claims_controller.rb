@@ -3,8 +3,14 @@ before_action :authenticate_recipient!, except: [:show, :confirm]
 before_action :authenticate_donor!, except: [:create]
 
   def create
-    @claim = Claim.create! donation_id: params[:donation_id], recipient_id: params[:recipient_id]
-    render json: :create
+    if current_recipient
+      donation = Donation.find params[:donation_id]
+      @claim = current_recipient.claim_donation donation
+    #Claim.create! donation_id: params[:donation_id], recipient_id: params[:recipient_id]
+      render json: :create
+    else
+      render json: { error: "not found" }, status: 404
+    end
     # send notification to donor
   end
 
@@ -20,7 +26,8 @@ before_action :authenticate_donor!, except: [:create]
   def confirm
     claim = Claim.find params[:claim_id]
     if claim.donation.donor == current_donor
-      claim.update! approved: true
+      current_donor.approve_claim claim
+      #claim.update! approved: true
       render json: { status: :ok }
     else
       render json: { error: "not found" }, status: 404

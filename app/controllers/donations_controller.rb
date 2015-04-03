@@ -15,16 +15,19 @@ class DonationsController < ApplicationController
 
   def new
     @donor_org = current_donor.organization
-    #@donor_org = Donor.first.organization
     render json: :new
   end
 
   def create
-    @donation = Donation.create! name: params[:name], description: params[:description], 
-      requirements: params[:requirements], donor_id: current_donor.id, 
-      auto_confirm: params[:auto_confirm]
-
-    render json: :create
+    #if current_donor
+      @donation = current_donor.create_donation params
+    # Donation.create! name: params[:name], description: params[:description], 
+    #   requirements: params[:requirements], donor_id: current_donor.id, 
+    #   auto_confirm: params[:auto_confirm]
+      render json: :create
+    #else
+     # render json: { error: "not found"}, status: 404
+    #end
   end
 
 end
