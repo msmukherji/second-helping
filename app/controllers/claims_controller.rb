@@ -1,5 +1,5 @@
 class ClaimsController < ApplicationController
-before_action :authenticate_recipient!, except: [:show, :confirm]
+before_action :authenticate_recipient!, except: [:show, :confirm, :show_confirm]
 before_action :authenticate_donor!, except: [:create]
 
   def create
@@ -11,7 +11,6 @@ before_action :authenticate_donor!, except: [:create]
     else
       render json: { error: "not found" }, status: 404
     end
-    # send notification to donor
   end
 
   def show
@@ -23,6 +22,11 @@ before_action :authenticate_donor!, except: [:create]
     end
   end
 
+  def show_confirm
+    @claim = Claim.find params[:claim_id]
+    render :show_confirm
+  end
+
   def confirm
     claim = Claim.find params[:claim_id]
     if claim.donation.donor == current_donor
@@ -32,8 +36,8 @@ before_action :authenticate_donor!, except: [:create]
     else
       render json: { error: "not found" }, status: 404
     end
-    # send notification to recipient
   end
+
 
 # figure out flash messages for not authenticated, etc.
 end

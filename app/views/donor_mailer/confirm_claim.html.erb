@@ -4,9 +4,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @recipient.name %></h1>
+    <h1>Hi <%= @recipient.name %>,</h1>
     <p>
-      Sample mail sent using smtp.
+      Your claim on <%= @donation.name %> has been approved!  As a reminder, the requirements:
+      <%= @donation.requirements %>
+
+      Please collect this donation at the agreed-upon time and place.
+
+      Thank you for helping to reduce food waste!
+
+      -Your friends at Second Helping
     </p>
   </body>
 </html>
