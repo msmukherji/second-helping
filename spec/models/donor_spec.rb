@@ -9,12 +9,6 @@ RSpec.describe Donor, type: :model do
     expect(Donation.first.donor_id).to eq donor.id
   end
 
-  # it "cannot create a donation if not logged in as a donor" do 
-  #   donation = Donation.create name: "noodles", description: "oodles of them", requirements: "tonight"
-  #   expect(donations.all).to eq nil
-  # end
-  # # ^^ not great
-
   it "can.. something about new?"
 
   it "can confirm a claim on a donation" do
@@ -25,13 +19,12 @@ RSpec.describe Donor, type: :model do
     expect(claim.approved?).to eq true
   end
 
-  # DO I NEED THISvv TEST ON THE MODEL? 
-
   it "cannot confirm a claim on anothers donation" do
     claim = FactoryGirl.create :claim
     donor = FactoryGirl.create :donor
-    donor.approve_claim claim
+    #donor.approve_claim claim
 
+    expect {donor.approve_claim claim}.to raise_error(RuntimeError)
     expect(claim.approved?).to eq false
   end
 

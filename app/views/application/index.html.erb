@@ -5,15 +5,6 @@
 		<link href="index.css" rel="stylesheet" />
 	</head>
 	
-				<% if @donor %>
-		<%= @donor.name %>
-		<%= @donor.email %>
-	<% elsif @recipient %>
-		<%= @recipient.name %>
-		<%= @recipient.email %>
-	<% else %>
-		no one is logged in
-	<% end %>
 	<body ui-view>
 		<div ui-view="home">
 
