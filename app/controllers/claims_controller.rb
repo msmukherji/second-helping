@@ -33,8 +33,9 @@ before_action :authenticate_donor!, except: [:create]
       current_donor.approve_claim claim
       #claim.update! approved: true
       render json: { status: :ok }
+      # should this redirect?
     else
-      render json: { error: "not found" }, status: 404
+      render json: { error: "not found", donor: current_donor }, status: 404
     end
   end
 

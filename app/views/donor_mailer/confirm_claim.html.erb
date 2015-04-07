@@ -6,8 +6,12 @@
   <body>
     <h1>Hi <%= @recipient.name %>,</h1>
     <p>
-      Your claim on <%= @donation.name %> has been approved!  As a reminder, the requirements:
-      <%= @donation.requirements %>
+      Your claim on <%= @donation.name %> has been approved!  
+
+      <% if @donation.requirements %>
+      	As a reminder, these are the requirements:
+      	<%= @donation.requirements %>
+      <% end %>
 
       Please collect this donation at the agreed-upon time and place.
 

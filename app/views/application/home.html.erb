@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="helperApp">
+
+<html>
+<div ng-app="helperApp">
 	<head>
 		<title>Second Helping</title>
 		<link href="index.css" rel="stylesheet" />
+		<%= stylesheet_link_tag    'application', media: 'all' %>
+  		<%= javascript_include_tag 'application' %> 
+  		<%= csrf_meta_tags %>
 	</head>
+</div>
 	
 	<body ui-view>
 		<div ui-view="home">

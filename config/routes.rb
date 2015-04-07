@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :recipients, controllers: {registrations: 'recipients/registrations'}
   devise_for :donors, controllers: {registrations: 'donors/registrations'}
 
-  root 'application#index'
+  root 'application#home'
 
   get '/donations'                => 'donations#index'
   get '/donations/:donation_id'   => 'donations#show'
