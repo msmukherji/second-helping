@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+	<html ng-app="receivingApp">
+		<head>
+			<title>Second Helpings</title>
+			<link href="donations.css" rel="stylesheet" />
+		</head>
+		<body>
+			<h1 class="donor-header">Available Donations</h1>
+			<div>
+				<img class="logo-image" src="images/paperbag.png" />
+			</div>
+			<div class="donations" ng-controller="RecipientController">
+				<div class="donation-block" ng-repeat="item in data.donations">
+					<span class="donation-id"> {{item.donation_id}} </span>
+					<span class="description"> {{item.description}} </span>
+					<span class="organization"> {{item.organization}} </span>
+					<span class="requirements"> {{item.requirements}} </span>
+					<span class="pending"> {{item.claims.claimant}} </span>
+					<span class="claimed"> {{item.claims.approved}} </span>
+					<button class="details" href= "/recipients/donation/{{item.donation_id}}">Details</button> 
+				</div>
+			</div>
+			<div class="individual-donation">
+			</div>
+			<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+		</body>
+	</html>
