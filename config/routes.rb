@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :donors, controllers: {registrations: 'donors/registrations'}
 
   root 'application#home'
+  get '/donor'                    => 'donors#show'
+  get '/recipient'                => 'recipients#show'
 
   get '/donations'                => 'donations#index'
   get '/donations/:donation_id'   => 'donations#show'
