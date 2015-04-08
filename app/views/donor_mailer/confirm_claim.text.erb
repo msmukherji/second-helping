@@ -1,2 +1,14 @@
-Hi <%= @recipient.name %>
-Sample mail sent using smtp.
+Hi <%= @recipient.name %>,
+
+Your claim on <%= @donation.name %> has been approved!  
+
+<% if @donation.requirements %>
+    As a reminder, these are the requirements:
+    <%= @donation.requirements %>
+<% end %>
+
+Please collect this donation at the agreed-upon time and place.
+
+Thank you for helping to fight food waste!
+
+      -Your friends at Second Helping

@@ -4,9 +4,21 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hi <%= @recipient.name %></h1>
+    <h1>Hi <%= @recipient.name %>,</h1>
     <p>
-      Sample mail sent using smtp.
+      Your claim on <%= @donation.name %> has been approved!  </p>
+	<p>
+      <% if @donation.requirements %>
+      	As a reminder, these are the requirements:
+      	<%= @donation.requirements %>
+      <% end %>
+    </p>
+    <p>
+      Please collect this donation at the agreed-upon time and place.
+    </p>
+      Thank you for helping to reduce food waste!
+    <p>
+      -Your friends at Second Helping
     </p>
   </body>
 </html>

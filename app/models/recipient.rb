@@ -8,8 +8,13 @@ class Recipient < ActiveRecord::Base
 
   def claim_donation donation
     unless Claim.find_by(donation_id: donation.id) && Claim.find_by(donation_id: donation.id).approved? == true
-      Claim.create! donation_id: donation.id, recipient_id: self.id
+      claim = Claim.create! donation_id: donation.id, recipient_id: self.id
+      notify_claimed claim
     end
   end
 
+  def notify_claimed claim
+    mailer = RecipientMailer.alert_claim claim
+    mailer.deliver_later
+  end
 end

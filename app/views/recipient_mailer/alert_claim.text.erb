@@ -1,0 +1,17 @@
+Hi <%= @donor.name %>,
+
+<%= @recipient.name %> has claimed your donation of <%= @donation.name %>!  <!-- Check out their website: <a href=@recipient.website </a> --> 
+      <% if @donation.requirements %>
+
+      As a reminder, here are the requirements you gave:
+      	<%= @donation.requirements %>
+      <% else %>
+      	You did not specify any requirements for this donation.
+      <% end %>
+      
+      To approve this claim, please copy and paste the following link into your url bar:
+      	 <%= show_confirm_claim_url(@claim) %>
+	 
+      Thank you for helping to reduce food waste!
+	
+      -Your friends at Second Helping
