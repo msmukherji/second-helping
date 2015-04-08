@@ -6,17 +6,18 @@
   <body>
     <h1>Hi <%= @recipient.name %>,</h1>
     <p>
-      Your claim on <%= @donation.name %> has been approved!  
-
+      Your claim on <%= @donation.name %> has been approved!  </p>
+	<p>
       <% if @donation.requirements %>
       	As a reminder, these are the requirements:
       	<%= @donation.requirements %>
       <% end %>
-
+    </p>
+    <p>
       Please collect this donation at the agreed-upon time and place.
-
+    </p>
       Thank you for helping to reduce food waste!
-
+    <p>
       -Your friends at Second Helping
     </p>
   </body>
