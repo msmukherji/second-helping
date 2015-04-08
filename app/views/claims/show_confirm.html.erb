@@ -1,6 +1,10 @@
 <h1> Welcome back to Second Helping! </h1>
 <br>
-<h4> Click the button below to approve <%= @claim.recipient.name%>'s claim on your donation of <%= @claim.donation.name %> </h4>
+<% if @claim.approved == true %>
+	<h4> <%= @claim.recipient.name %>'s claim on your donation of <%= @claim.donation.name %> has already been approved. </h4>
+<% else %>
+	<h4> Click the button below to approve <%= @claim.recipient.name %>'s claim on your donation of <%= @claim.donation.name %> </h4>
+<% end %>
 <br>
 <%= form_tag(confirm_claim_path, method: "post") do %>
   <button> Approve </button>

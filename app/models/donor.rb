@@ -17,6 +17,9 @@ class Donor < ActiveRecord::Base
     raise "Can't approve other's donation" unless claim.donation.donor_id == self.id
     claim.update! approved: true
     notify_confirmed claim
+    #unless text_alert == false
+      text_confirmed claim
+    #end
   end
 
   def notify_confirmed claim
@@ -24,7 +27,9 @@ class Donor < ActiveRecord::Base
     mailer.deliver_later
   end
 
-
+  def text_confirmed claim
+    sms = TwilioTexter.confirm_claim claim
+  end
 end
 
 
