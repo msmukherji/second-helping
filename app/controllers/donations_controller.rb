@@ -19,15 +19,8 @@ class DonationsController < ApplicationController
   end
 
   def create
-    #if current_donor
-      @donation = current_donor.create_donation params
-    # Donation.create! name: params[:name], description: params[:description], 
-    #   requirements: params[:requirements], donor_id: current_donor.id, 
-    #   auto_confirm: params[:auto_confirm]
-      render :create, formats: [:json]
-    #else
-     # render json: { error: "not found"}, status: 404
-    #end
+    @donation = current_donor.create_donation params
+    render :create, formats: [:json]
   end
 
 end

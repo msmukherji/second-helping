@@ -7,7 +7,7 @@ before_action :authenticate_donor!, except: [:create]
       donation = Donation.find params[:donation_id]
       @claim = current_recipient.claim_donation donation
     #Claim.create! donation_id: params[:donation_id], recipient_id: params[:recipient_id]
-      render :create, format: :json
+      render :create, formats: [:json]
     else
       render json: { error: "not found" }, status: 404
     end
@@ -16,7 +16,7 @@ before_action :authenticate_donor!, except: [:create]
   def show
     @claim = Claim.find params[:claim_id]
     if @claim.donation.donor == current_donor
-      render :show, format: :json
+      render :show, formats: [:json]
     else
       render json: { error: "not found" }, status: 404
     end
@@ -31,9 +31,7 @@ before_action :authenticate_donor!, except: [:create]
     claim = Claim.find params[:claim_id]
     if claim.donation.donor == current_donor
       current_donor.approve_claim claim
-      #claim.update! approved: true
       render json: { status: :ok }
-      # should this redirect?
     else
       render json: { error: "not found", donor: current_donor }, status: 404
     end
