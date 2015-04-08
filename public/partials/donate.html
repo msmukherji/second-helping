@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html ng-app="donatingApp">
+		<head>
+			<title>Second Helping</title>
+			<link href="donations.css" rel="stylesheet" />
+		</head>
+		<body>
+			<h1 class="donor-header">Make a Donation</h1>
+			<div>
+				<img class="logo-image" src="images/paperbag.png" />
+			</div>
+			<div class="donate" ng-controller="DonorController">
+				<div class="donor" ng-repeat="item in data.donors.donation">
+					<h2 class="donor-organization"> {{item.organization}} </h2>
+				</div>
+				<div class="donation">
+					<input class="donor-individual">Donor name</input>
+					<input class="donor-contact">Donor's contact information</input>
+					<input class="donation-description">What are you donating? Please be as descriptive as possible</input>
+					<input class="recipients-requirements">Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or a certain place?)</input>
+					<radio class="auto-confirm">You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.</radio>
+					<button class="submit-donation">Submit your donation</button>
+				</div>
+			</div>
+			<div class="pending-donations" ng-controller="RecipientController">
+
+			</div>
+			<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+		</body>
+	</html>

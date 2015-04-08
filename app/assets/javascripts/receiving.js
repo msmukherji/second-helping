@@ -1,4 +1,4 @@
-var helperApp = angular.module("helperApp", ["ui.router"])
+var receivingApp = angular.module("receivingApp", ["ui.router"])
 
 // helperApp.config([ "$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
 
@@ -9,10 +9,12 @@ var helperApp = angular.module("helperApp", ["ui.router"])
 
 // }])
 
-helperApp.controller("RecipientController", [ "$scope", "$http", function($scope, $http){
+receivingApp.controller("RecipientController", [ "$scope", "getData", function($scope, getData){
 
-}])
+	getData("http://localhost:3000/donations", function(data){
 
-helperApp.controller("DonorController", [ "$scope", "$http", function($scope, $http){
-	
-}])
+		$scope.data = data
+
+	});
+
+}]);
