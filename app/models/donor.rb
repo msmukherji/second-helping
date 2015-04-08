@@ -14,9 +14,7 @@ class Donor < ActiveRecord::Base
   end
 
   def approve_claim claim
-    raise "Can't approve other's donation" unless claim.donation.donor_id == id
-    # ^^ redundant?  do i need to check this in both
-    # model and controller?
+    raise "Can't approve other's donation" unless claim.donation.donor_id == self.id
     claim.update! approved: true
     notify_confirmed claim
   end

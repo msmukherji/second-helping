@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :recipients, controllers: {registrations: 'recipients/registrations'}
   devise_for :donors, controllers: {registrations: 'donors/registrations'}
 
-  root 'application#index'
+  root 'application#home'
 
   get '/donations'                => 'donations#index'
   get '/donations/:donation_id'   => 'donations#show'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   post '/donations/:donation_id'  => 'claims#create' # creates claim and notifies donor
   get '/claims/:claim_id'         => 'claims#show' # shows donor their claimed donation
-  post '/confirm/:claim_id'       => 'claims#confirm'
+  get '/confirm/:claim_id'        => 'claims#show_confirm', as: "show_confirm_claim"
+  post '/confirm/:claim_id'       => 'claims#confirm', as: "confirm_claim"
 
 end
