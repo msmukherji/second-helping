@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @recipient.name %>,</h1>
+    <p>
+      Your claim on <%= @donation.name %> has been approved!  
+
+      <% if @donation.requirements %>
+      	As a reminder, these are the requirements:
+      	<%= @donation.requirements %>
+      <% end %>
+
+      Please collect this donation at the agreed-upon time and place.
+
+      Thank you for helping to reduce food waste!
+
+      -Your friends at Second Helping
+    </p>
+  </body>
+</html>

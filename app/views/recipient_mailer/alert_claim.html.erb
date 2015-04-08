@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @donor.name %>,</h1>
+    <p>
+      <%= @recipient.name %> has claimed your donation of <%= @donation.name %>!  <!-- Check out their website: <a href=@recipient.website </a> --> </p>
+      <p>
+      <% if @donation.requirements %>
+
+      As a reminder, here are the requirements you gave:
+      <%= @donation.requirements %>
+      <% else %>
+      You did not specify any requirements for this donation.
+      <% end %>
+      </p>
+      <p>
+      To approve this claim, please follow the link below:
+      	<%= link_to "Approve Claim", show_confirm_claim_url(@claim) %>
+	  </p>
+      Thank you for helping to reduce food waste!
+	<p>
+      -Your friends at Second Helping
+    </p>
+  </body>
+</html>

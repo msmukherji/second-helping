@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402160051) do
+ActiveRecord::Schema.define(version: 20150407155007) do
 
   create_table "claims", force: :cascade do |t|
     t.integer  "donation_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150402160051) do
     t.boolean  "auto_confirm", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.datetime "expiration"
   end
 
   create_table "donors", force: :cascade do |t|

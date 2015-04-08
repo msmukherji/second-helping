@@ -6,6 +6,25 @@ class Donor < ActiveRecord::Base
 
   has_many   :donations
   belongs_to :organization
+
+  def create_donation params
+    Donation.create! name: params[:name], description: params[:description], 
+      requirements: params[:requirements], donor_id: self.id, 
+      auto_confirm: params[:auto_confirm]
+  end
+
+  def approve_claim claim
+    raise "Can't approve other's donation" unless claim.donation.donor_id == self.id
+    claim.update! approved: true
+    notify_confirmed claim
+  end
+
+  def notify_confirmed claim
+    mailer = DonorMailer.confirm_claim claim
+    mailer.deliver_later
+  end
+
+
 end
 
 

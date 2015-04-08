@@ -5,26 +5,29 @@ class DonationsController < ApplicationController
 
   def index
     @donations = Donation.all
-    render :index
+    render :index, format: [:json]
   end
 
   def show
     @donation = Donation.find(params[:donation_id])
-    render :show
+    render :show, format: [:json]
   end
 
   def new
     @donor_org = current_donor.organization
-    #@donor_org = Donor.first.organization
-    render :new
+    render :new, format: [:json]
   end
 
   def create
-    @donation = Donation.create! name: params[:name], description: params[:description], 
-      requirements: params[:requirements], donor_id: current_donor.id,
-      contact_number: params[:contact_number], auto_confirm: params[:auto_confirm]
-
-    render :create
+    #if current_donor
+      @donation = current_donor.create_donation params
+    # Donation.create! name: params[:name], description: params[:description], 
+    #   requirements: params[:requirements], donor_id: current_donor.id, 
+    #   auto_confirm: params[:auto_confirm]
+      render :create, format: [:json]
+    #else
+     # render json: { error: "not found"}, status: 404
+    #end
   end
 
 end
