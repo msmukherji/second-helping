@@ -18,7 +18,7 @@ class Donor < ActiveRecord::Base
     claim.update! approved: true
     notify_confirmed claim
     #unless text_alert == false
-      text_confirmed claim
+      # text_confirmed claim
     #end
   end
 
@@ -27,9 +27,11 @@ class Donor < ActiveRecord::Base
     mailer.deliver_later
   end
 
-  def text_confirmed claim
-    sms = TwilioTexter.confirm_claim claim
-  end
+  # is this at all the right way to do this?
+
+  # def text_confirmed claim
+  #   sms = TwilioTexter.confirm_claim claim
+  # end
 end
 
 

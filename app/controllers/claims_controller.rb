@@ -1,7 +1,8 @@
 class ClaimsController < ApplicationController
 
-before_action :authenticate_recipient!, except: [:show, :confirm, :show_confirm]
-before_action :authenticate_donor!, except: [:create]
+before_action :authenticate_recipient!, except: [:show, :confirm, :show_confirm, :confirm_by_text]
+before_action :authenticate_donor!, except: [:create, :confirm_by_text] #get rid of second thing..?
+skip_before_action :verify_authenticity_token, only: [:confirm_by_text]
 
   def create
     if current_recipient
@@ -32,9 +33,32 @@ before_action :authenticate_donor!, except: [:create]
     claim = Claim.find params[:claim_id]
     if claim.donation.donor == current_donor
       current_donor.approve_claim claim
-      render json: { status: :ok }
+      # render json: { status: :ok }
+      redirect_to donor_path
     else
       render json: { error: "not found", donor: current_donor }, status: 404
+    end
+  end
+
+  def confirm_by_text
+    if Claim.where(id: params["Body"].to_i).count != 0
+      claim = Claim.find params["Body"].to_i
+      number = params["From"]
+      number[0] = ""
+      number[0] = ""
+      donor = Donor.find_by(contact_number: number)
+    # login donor <-- not available here..?  have i done enough to secure this?
+      if claim.donation.donor == donor
+        donor.approve_claim claim
+    # does check that donor is the right person and that the number in the response correspondds to a claim
+    # does text if the number doesn't correspond to a claim, but does NOT text a person who sends the number..?
+    # without being the owner of that claim
+        render :confirmation_text, formats: [:xml]
+      else
+        render :error_text, formats: [:xml]
+      end
+    else
+      render :error_text, formats: [:xml]
     end
   end
 
