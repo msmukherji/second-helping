@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get '/confirm/:claim_id'        => 'claims#show_confirm', as: "show_confirm_claim"
   post '/confirm/:claim_id'       => 'claims#confirm', as: "confirm_claim"
 
+  post '/confirm_by_text'         => 'claims#confirm_by_text'
 end
