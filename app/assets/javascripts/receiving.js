@@ -1,20 +1,20 @@
 var receivingApp = angular.module("receivingApp", ["ui.router"])
 
-// helperApp.config([ "$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
+receivingApp.controller("RecipientController", [ "$scope", "$http", function($scope, $http){
 
-// 	$stateProvider
-// 		.state("home", { url:"", views:{ "home":{ templateUrl:"partials/home.html"}}})
+	$http.get("/donations").success(function(data){
 
-// 	$urlRouterProvider.otherwise("") 
+		$scope.data = data;
 
-// }])
+		console.log($scope)
 
-receivingApp.controller("RecipientController", [ "$scope", "getData", function($scope, getData){
+	});
 
-	getData("http://localhost:3000/donations", function(data){
+	$http.post("/recipients/donations").success(function(data){
 
-		$scope.data = data
+		$scope.data = data;
 
+		console.log($scope)
 	});
 
 }]);

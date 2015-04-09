@@ -1,1 +1,40 @@
-<h1> hey recipient, <%=@recipient.name%> is a cool name </h1>
+<!DOCTYPE html>
+	<html ng-app="receivingApp">
+		<head>
+			<title>Second Helpings</title>
+			<link href="donations.css" rel="stylesheet" />
+		</head>
+		<body>
+			<div>
+				<h1> hey recipient, <%=@recipient.name%> is a cool name </h1>
+				<h1 class="donor-header">Available Donations</h1>
+				<div>
+					<img class="logo-image" src="images/paperbag.png" />
+				</div>
+				<div class="donations" ng-controller="RecipientController">
+					<div class="donation-block" ng-repeat="item in data.donations">
+						<span class="donation-id"> {{item.donation_id}} </span>
+						<span class="description"> {{item.description}} </span>
+						<span class="organization"> {{item.organization}} </span>
+						<span class="requirements"> {{item.requirements}} </span>
+						<div class="claim" ng-repeat="claim in item.claims">
+							<span class="pending"> {{claim.claimant}} </span>
+							<span class="claimed"> {{claim.approved}} </span>
+						</div>
+						<button class="details" href= "/recipients/donation/{{item.donation_id}}">Details</button> 
+					</div>
+					<div class="individual-donation">
+						<div>
+							<img class="logo-image" src="images/paperbag.png" />
+						</div>
+						<span class="individual-donation-id"> {{item.donation_id}} </span>
+						<span class="individual-description"> {{item.description}} </span>
+						<span class="individual-organization"> {{item.organization}} </span>
+						<span class="individual-requirements"> {{item.requirements}} </span>
+						<button class="claim-donation">Claim this donation</button>
+					</div>
+				</div>
+				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+			</div>
+		</body>
+	</html>
