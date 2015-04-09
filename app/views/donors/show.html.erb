@@ -1,1 +1,38 @@
-<h1> hey donor, <%=@donor.name%> is a cool name </h1> </h1>
+<!DOCTYPE html>
+	<html ng-app="donatingApp">
+		<head>
+			<title>Second Helping</title>
+		</head>
+		<body>
+			<div class="donor-header">
+				<h1> hey donor, <%=@donor.name%> is a cool name </h1>
+				<h1 class="donor-headline">Make a Donation</h1>
+				<div>
+					<img class="logo-image" src="images/paperbag.png" />
+				</div>
+			</div>
+			<div class="donate" ng-controller="DonorController">
+				<div class="donor" ng-repeat="item in data.donors.donation">
+					<h2 class="donor-organization"> {{item.organization}} </h2>
+				</div>
+				<div class="donation">
+					<input class="donor-individual" ng-model="donation.donor">Donor name</input>
+					<input class="donor-contact" ng-model="donation.donorContact">Donor's contact information</input>
+					<input class="donation-description" ng-model="donation.donation">What are you donating? Please be as descriptive as possible</input>
+					<input class="recipients-requirements" ng-model="donation.requirements">Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or a certain place?)</input>
+					<div>
+						<input type="checkbox" class="auto-confirm" ng-model="donation.autoConfirm"/>You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.
+					</div>
+					<button class="submit-donation" ng-click="clickSubmit()">Submit your donation</button>
+				</div>
+			</div>
+			<div class="pending-donations" ng-controller="RecipientController">
+				<div class"donations" ng-repeat="item in data.donations">
+					<span class="donors-donation-id"> {{item.donation_id}} </span>
+					<span class="donors-description"> {{item.description}} </span>
+					<span class="donors-pending"> {{item.claims.claimant}} </span>
+				</div>
+			</div>
+			<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+		</body>
+	</html>
