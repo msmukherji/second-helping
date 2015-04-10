@@ -43,11 +43,7 @@ class Donor < ActiveRecord::Base
       :body => message
     )
   end
-  # is this at all the right way to do this?
 
-  # def text_confirmed claim
-  #   sms = TwilioTexter.confirm_claim claim
-  # end
 end
 
 

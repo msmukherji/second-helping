@@ -1,0 +1,10 @@
+<h1> Hi <%=@recipient.name%> </h1>
+<p> Here are the second helpings that are available today.  Head over to the <a href="http://50f36ec4.ngrok.com/donations">site</a> to claim yours! </p>
+<% @donations.each do |donation| %>
+	<p><h5><%=donation.name %></h5></p>
+	<p>		Description: <%=donation.description %></p>
+	<p>		Requirements: <%=donation.requirements %></p>
+	<p>		Expires: <%=donation.expiration %></p>
+<% end %>
+<p> See you soon! </p>
+<p> Your friends at Second Helping </p>

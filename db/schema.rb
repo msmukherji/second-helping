@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409213421) do
+ActiveRecord::Schema.define(version: 20150410184925) do
 
   create_table "claims", force: :cascade do |t|
     t.integer  "donation_id"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150409213421) do
     t.datetime "updated_at"
     t.string   "contact_number"
     t.boolean  "text_alert"
+    t.boolean  "digest"
   end
 
   add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true
