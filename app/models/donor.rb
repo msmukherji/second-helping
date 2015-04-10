@@ -17,9 +17,9 @@ class Donor < ActiveRecord::Base
     raise "Can't approve other's donation" unless claim.donation.donor_id == self.id
     claim.update! approved: true
     notify_confirmed claim
-    #unless text_alert == false
-      # text_confirmed claim
-    #end
+    if claim.recipient.text_alert == true
+      text_approval_notification claim
+    end
   end
 
   def notify_confirmed claim
@@ -27,6 +27,22 @@ class Donor < ActiveRecord::Base
     mailer.deliver_later
   end
 
+  def text_approval_notification claim
+    number_to_send_to = claim.recipient.contact_number
+ 
+    twilio_sid = Figaro.env.twilio_account_sid
+    twilio_token = Figaro.env.twilio_auth_token
+    twp = Figaro.env.twilio_phone_number
+    message = "Your claim on #{claim.donation.name} has been approved! 
+      As a reminder, here are the requirements: #{claim.donation.requirements}."
+    @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+ 
+    @twilio_client.account.sms.messages.create(
+      :from => "+1#{twp}",
+      :to => number_to_send_to,
+      :body => message
+    )
+  end
   # is this at all the right way to do this?
 
   # def text_confirmed claim

@@ -11,7 +11,7 @@ class Recipient < ActiveRecord::Base
       claim = Claim.create! donation_id: donation.id, recipient_id: self.id
       notify_claimed claim
       if donation.donor.text_alert == true
-        send_text_message claim
+        text_claim_notification claim
       end
     end
   end
@@ -21,8 +21,8 @@ class Recipient < ActiveRecord::Base
     mailer.deliver_later
   end
 
-  def send_text_message claim
-    number_to_send_to = self.donation.donor.contact_number
+  def text_claim_notification claim
+    number_to_send_to = claim.donation.donor.contact_number
  
     twilio_sid = Figaro.env.twilio_account_sid
     twilio_token = Figaro.env.twilio_auth_token
