@@ -5,14 +5,14 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 	$scope.clickSubmit = function() {
 		console.log($scope.donation)
 
-		$http.post("/donors/donations", {
+		$http.post("/donors/donation", {
 			// data to be sent to rails goes in this object
 
-			donor: $scope.donation.donor,
-			donor-contact: $scope.donation.donorContact,
-			donation: $scope.donation.donation,
+			name: $scope.donation.donor,
+			description: $scope.donation.donation,
 			requirements: $scope.donation.requirements,
-			auto-confirm: $scope.donation.autoConfirm,
+			expiration: $scope.donation.expiration,
+			"auto_confirm": $scope.donation.autoConfirm,
 
 		}).success(function(data){
 			// do something?
@@ -30,7 +30,7 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 
 }]);
 
-donatingApp.controller("RecipientController", [ "$scope", "$http", function($scope, $http){
+donatingApp.controller("DonorsDonationsController", [ "$scope", "$http", function($scope, $http){
 
 	$http.get("/donations").success(function(data){
 
