@@ -61,7 +61,7 @@ describe ClaimsController do
     login donor
     post :confirm, claim_id: claim.id
   
-    expect(response.code.to_i).to eq 200
+    expect(response.code.to_i).to eq 302
     claim.reload
     expect(claim.approved?).to eq true
   end

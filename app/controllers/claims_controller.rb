@@ -34,7 +34,7 @@ skip_before_action :verify_authenticity_token, only: [:confirm_by_text]
     if claim.donation.donor == current_donor
       current_donor.approve_claim claim
       # render json: { status: :ok }
-      redirect_to donor_path
+      redirect_to donor_root_path
     else
       render json: { error: "not found", donor: current_donor }, status: 404
     end
