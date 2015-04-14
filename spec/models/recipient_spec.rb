@@ -32,4 +32,12 @@ RSpec.describe Recipient, type: :model do
     expect(Claim.find_by(recipient_id: recipient.id)).to eq nil
   end
 
+  it "sends an email to notify about a new claim" do
+    recipient = FactoryGirl.create :recipient
+    donor = FactoryGirl.create :donor
+    donation = Donation.create donor_id: donor.id, name: "some food", expiration: "April 12, 2015"
+    claim = Claim.create donation_id: donation.id, recipient_id: recipient.id
+    expect { recipient.notify_claimed claim }.to change { ActionMailer::Base.deliveries.count }.by(1)
+  end
+
 end

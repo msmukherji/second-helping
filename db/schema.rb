@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409203814) do
+ActiveRecord::Schema.define(version: 20150410184925) do
 
   create_table "claims", force: :cascade do |t|
     t.integer  "donation_id"
@@ -26,10 +26,12 @@ ActiveRecord::Schema.define(version: 20150409203814) do
     t.integer  "donor_id"
     t.text     "description"
     t.text     "requirements"
-    t.boolean  "auto_confirm", default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "auto_confirm",  default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.datetime "expiration"
+    t.string   "donor"
+    t.string   "donor_contact"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -78,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150409203814) do
     t.datetime "updated_at"
     t.string   "contact_number"
     t.boolean  "text_alert"
+    t.boolean  "digest"
   end
 
   add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true

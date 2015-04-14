@@ -1,5 +1,6 @@
 json.donation do
 	json.name @donation.name
+	json.donor @donation.donor
 	json.donation_id @donation.id
 	json.organization @donation.donor.organization
 	json.description @donation.description
