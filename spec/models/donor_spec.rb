@@ -27,5 +27,10 @@ RSpec.describe Donor, type: :model do
     expect {donor.approve_claim claim}.to raise_error(RuntimeError)
     expect(claim.approved?).to eq false
   end
-
+ 
+  it "sends an email to notify confirmation" do
+    claim = FactoryGirl.create :claim
+    donor = claim.donation.donor
+    expect { donor.notify_confirmed claim}.to change { ActionMailer::Base.deliveries.count }.by(1)
+  end
 end

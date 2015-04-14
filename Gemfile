@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'twilio-ruby'
 gem 'sidekiq'
 gem 'sidetiq'
+gem 'angular_rails_csrf'
 
 
 group :development, :test do
