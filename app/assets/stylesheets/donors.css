@@ -167,7 +167,36 @@
 	width: 15%;
 	font-size: 18px;
 	padding: 8px;
+}
 
+input[type="text"] {
+    background-color: #E0AB4E;
+    width: 30%;
+    height: 40px;
+    border-radius: 5px;
+    margin: 8% 35%;
+    color: #EEEEEE;
+    font-size: 15px;
+}
+
+input[type="date"] {
+    background-color: #E0AB4E;
+    width: 30%;
+    height: 40px;
+    border-radius: 5px;
+    margin: 8% 35%;
+    color: #EEEEEE;
+    font-size: 15px;
+}
+
+textarea[type="submit"] {
+    background-color: #E0AB4E;
+    width: 30%;
+    height: 40px;
+    border-radius: 5px;
+    margin: 8% 35%;
+    color: #EEEEEE;
+    font-size: 15px;
 }
 
 .pending-donations {

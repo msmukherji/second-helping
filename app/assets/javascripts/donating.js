@@ -6,7 +6,6 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 		console.log($scope.donation)
 
 		$http.post("/donors/donation", {
-			// data to be sent to rails goes in this object
 
 			name: $scope.donation.donor,
 			description: $scope.donation.donation,
@@ -15,15 +14,10 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 			"auto_confirm": $scope.donation.autoConfirm,
 
 		}).success(function(data){
-			// do something?
-		})
-	}
-	/*$http.post("/donors/donations", data).success(function(data){
-
-		$scope.data = data;
-
-		console.log($scope)
-	});*/
+			
+	})
+}
+	
 
 	
 
