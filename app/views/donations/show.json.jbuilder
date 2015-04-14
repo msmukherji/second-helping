@@ -5,6 +5,7 @@ json.donation do
 	json.organization @donation.donor.organization
 	json.description @donation.description
 	json.requirements @donation.requirements
+	json.expiration @donation.expiration
 	if @donation.claims
 		json.claims @donation.claims do |claim|
 			json.claimant claim.recipient.name

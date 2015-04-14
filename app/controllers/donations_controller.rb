@@ -23,4 +23,9 @@ class DonationsController < ApplicationController
     render :create, formats: [:json]
   end
 
+  def show_donors
+    @donor = current_donor
+    render :show_donor, formats: [:json]
+  end
+
 end
