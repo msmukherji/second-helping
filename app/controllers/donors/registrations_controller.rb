@@ -62,6 +62,6 @@ class Donors::RegistrationsController < Devise::RegistrationsController
   private 
 
   def sign_up_params
-    params.require(:donor).permit(:email, :password, :name, :role, :contact_number, :organization_id)
+    params.require(:donor).permit(:email, :password, :name, :role, :contact_number, :organization_id, :text_alert)
   end
 end

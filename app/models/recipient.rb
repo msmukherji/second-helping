@@ -6,6 +6,8 @@ class Recipient < ActiveRecord::Base
 
   has_many :claims
 
+  attr_accessible :text_alert
+
   def claim_donation donation
     unless Claim.find_by(donation_id: donation.id) && Claim.find_by(donation_id: donation.id).approved? == true
       claim = Claim.create! donation_id: donation.id, recipient_id: self.id

@@ -45,24 +45,21 @@ skip_before_action :verify_authenticity_token, only: [:confirm_by_text]
       if params["AccountSid"] != Figaro.env.twilio_account_sid
         head :bad_request
         return
-      else
-        claim = Claim.find params["Body"].to_i
-        number = params["From"]
-        number[0] = ""
-        number[0] = ""
-        @donor = Donor.find_by(contact_number: number)
-
-        if claim.donation.donor == @donor
-
-          @donor.approve_claim claim
-    # does check that donor is the right person and that the number in the response corresponds to a claim
-    # does text if the number doesn't correspond to a claim, but does NOT text a person who sends the number..?
-    # without being the owner of that claim
-          render :confirmation_text, formats: [:xml]
-        else
-          render :error_text, formats: [:xml]
-        end
       end
+        
+      claim = Claim.find params["Body"].to_i
+      number = params["From"]
+      number[0] = ""
+      number[0] = ""
+      @donor = Donor.find_by(contact_number: number)
+
+      if claim.donation.donor == @donor
+        @donor.approve_claim claim    
+        render :confirmation_text, formats: [:xml]
+      else
+        render :error_text, formats: [:xml]
+      end
+      
     else
       render :error_text, formats: [:xml]
     end

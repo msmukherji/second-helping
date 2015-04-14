@@ -7,6 +7,8 @@ class Donor < ActiveRecord::Base
   has_many   :donations
   belongs_to :organization
 
+  attr_accessible :text_alert
+
   def create_donation params
     Donation.create! name: params[:name], description: params[:description], 
       requirements: params[:requirements], donor_id: self.id, 
