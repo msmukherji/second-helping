@@ -15,4 +15,12 @@ receivingApp.controller("RecipientController", [ "$scope", "$http", function($sc
 		$scope.activeItem = item
 	}
 
+	$scope.clickClaim = function() {
+
+		$http.post("/donations/" + $scope.activeItem.donation_id).success(function(data){
+			console.log(data)
+			$scope.activeItem = ""
+		})
+	}
+
 }]);

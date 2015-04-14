@@ -29,26 +29,22 @@
 						<button class="details" href= "/recipients/donation/{{item.donation_id}}" ng-click="clickDetailsButton(item)">Details</button> 
 					</div>
 
-				<div class="active-item" ng-show="!!activeItem">
-					<img class="individual-background-image" src="/images/farm3.jpeg" />
-						<div class="individual-background-overlay">
-						</div>
-						<div class="individual-logo">
-							<img class="active-logo-image" src="images/paperbag.png" />
-						</div>
-						<div class="individual-donation">
-							<span class="individual-donation-id"> {{activeItem.donation_id}} </span>
-							<span class="individual-description"> {{activeItem.description}} </span>
-							<span class="individual-requirements"> {{activeItem.requirements}} </span>
-							<button class="claim-donation" ng-click="clickClaim()">Claim this donation</button>
-						</div>
+					<div class="active-item" ng-show="!!activeItem">
+						<img class="individual-background-image" src="/images/farm3.jpeg" />
+							<div class="individual-background-overlay">
+							</div>
+							<div class="individual-logo">
+								<img class="active-logo-image" src="images/paperbag.png" />
+							</div>
+							<div class="individual-donation">
+								<span class="individual-donation-id"> {{activeItem.donation_id}} </span>
+								<span class="individual-donor"> {{activeItem.donor}} </span>
+								<span class="individual-description"> {{activeItem.description}} </span>
+								<span class="individual-requirements"> {{activeItem.requirements}} </span>
+								<button class="claim-donation" ng-click="clickClaim()">Claim this donation</button>
+							</div>
+					</div>
 				</div>
-				</div>
-			<!--  
-				<div class="individual-donation" ng-controller="IndividualDonationController">
-					<%= token_tag %>
-					
-				</div> -->
 				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
 			</div>
 		</body>

@@ -193,3 +193,13 @@
 .individual-donation-id {
 	display: none;
 }
+
+.individual-donor {
+	position: absolute;
+	text-align: center;
+	top: 45%;
+	left: 31%;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+}
