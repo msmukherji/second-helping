@@ -4,35 +4,49 @@
 			<title>Second Helping</title>
 		</head>
 		<body>
-			<div class="donor-header">
-				<h1> hey donor, <%=@donor.name%> is a cool name </h1>
-				<h1 class="donor-headline">Make a Donation</h1>
-				<div>
-					<img class="logo-image" src="images/paperbag.png" />
+			<img class="donor-background-image" src="/images/farm1.jpeg" />
+				<div class="background-overlay">
+					<span class="welcome"> Welcome, <%=@donor.name%>! You're signed in. </span>
 				</div>
-			</div>
-			<div class="donate" ng-controller="DonorController">
-				<div class="donor" ng-repeat="item in data.donors.donation">
-					<h2 class="donor-organization"> {{item.organization}} </h2>
-				</div>
-				<div class="donation">
-					<input class="donor-individual" ng-model="donation.donor">Donor name</input>
-					<input class="donor-contact" ng-model="donation.donorContact">Donor's contact information</input>
-					<input class="donation-description" ng-model="donation.donation">What are you donating? Please be as descriptive as possible</input>
-					<input class="recipients-requirements" ng-model="donation.requirements">Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or a certain place?)</input>
+				<div class="donor-header">
+					<h1 class="donor-headline">Make a Donation</h1>
 					<div>
-						<input type="checkbox" class="auto-confirm" ng-model="donation.autoConfirm"/>You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.
+						<img class="logo-image" src="images/paperbag.png" />
 					</div>
-					<button class="submit-donation" ng-click="clickSubmit()">Submit your donation</button>
 				</div>
-			</div>
-			<div class="pending-donations" ng-controller="RecipientController">
-				<div class"donations" ng-repeat="item in data.donations">
-					<span class="donors-donation-id"> {{item.donation_id}} </span>
-					<span class="donors-description"> {{item.description}} </span>
-					<span class="donors-pending"> {{item.claims.claimant}} </span>
+				<div class="donate" ng-controller="DonorController">
+					<%= token_tag %>
+					<div class="donor" ng-repeat="item in data.donors.donation">
+						<h2 class="donor-organization"> {{item.organization}} </h2>
+					</div>
+					<div class="donation">
+						<div class="first-input">
+							<input class="donor-individual" type="text" ng-model="donation.donor" placeholder="Donor name"></input>
+						</div>
+						<div class="second-input">
+							<textarea class="donation-description" type="text" ng-model="donation.donation" placeholder="What are you donating? Please be as descriptive as possible."></textarea>
+						</div>
+						<div class="third-input">
+							<textarea class="recipients-requirements" type="text" ng-model="donation.requirements" placeholder="Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or from a certain place?)"></textarea>
+						</div>
+						<div class="fourth-input">
+							<input class="recipients-expiration" type="date" ng-model="donation.expiration" placeholder="MM/DD/YYYY"></input>
+							<label class="fourth-label">If unclaimed, when should we remove this donation?</label>
+						</div>
+						<div class="fifth-input">
+							<input type="checkbox" class="auto-confirm" ng-model="donation.autoConfirm"></input>
+							<label class="fifth-label">You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.</label>
+							<button class="submit-donation" ng-click="clickSubmit()">Submit your donation</button>
+						</div>
+					</div>
 				</div>
-			</div>
-			<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+				<div class="pending-donations" ng-controller="DonorsDonationsController">
+					<div class="donations" ng-repeat="item in data.donations">
+						<span class="donors-donation-id"> {{item.donation_id}} </span>
+						<span class="donors-description"> {{item.description}} </span>
+						<span class="donors-pending"> {{item.claims.claimant}} </span>
+					</div>
+				</div>
+				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
 		</body>
 	</html>
