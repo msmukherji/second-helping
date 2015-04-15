@@ -61,7 +61,7 @@ class Recipients::RegistrationsController < Devise::RegistrationsController
   private 
 
   def sign_up_params
-    params.require(:recipient).permit(:email, :password, :name, :text_alert)
+    params.require(:recipient).permit(:email, :password, :name, :text_alert, :digest, :contact_number)
   end
 
 end

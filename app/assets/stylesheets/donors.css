@@ -9,6 +9,7 @@
 	width: 100%;
 	height: 100vh;
 	position: absolute;
+	background-attachment: fixed;
 }
 
 .background-overlay {
@@ -19,6 +20,7 @@
 	top: 0;
 	right: 0;
 	opacity: .7;
+	background-attachment: fixed;
 }
 
 .donor-header {

@@ -21,6 +21,7 @@
     </div>
 
     <div class="field">
+<<<<<<< HEAD
       <div class="input-box">
         <%= f.text_field :contact_number, :placeholder => "Contact number" %>
       </div>
@@ -29,6 +30,19 @@
     <div class="checkbox">
       <%= f.check_box :text_alert  %> 
          <label class="checkbox-label">Would you like to receive text alerts when your claim is approved? (You will still receive an email)</label>
+=======
+      <%= f.text_field :contact_number, autofocus: true, :placeholder => "Contact number" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :text_alert %>
+      <%= f.label "Would you like to receive text alerts when your claims are approved? (You will still receive emails)" %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :digest %>
+      <%= f.label "Would you like to receive a daily email listing available donations?" %>
+>>>>>>> 67e8eb79035d43f114b0b2f9e56808245fc85bac
     </div>
 
     <div class="actions">
