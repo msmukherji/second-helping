@@ -79,10 +79,10 @@
 	width: 100%;
 }
 
-.donor-individual {
+.donor-donation {
 	position: relative;
 	display: inline-block;
-	width: 25%;
+	width: 35%;
 	height: 25px;
 	color: #CCCCCC;
 	font-family: Verdana;
@@ -163,40 +163,23 @@
 	position: relative;
 	display: inline-block;
 	float: right;
-	margin-right: 5%;
-	width: 15%;
+	margin-right: 0;
+	margin-top: 1%;
+	width: 25%;
 	font-size: 18px;
 	padding: 8px;
 }
 
 input[type="text"] {
-    background-color: #E0AB4E;
-    width: 30%;
-    height: 40px;
-    border-radius: 5px;
-    margin: 8% 35%;
-    color: #EEEEEE;
-    font-size: 15px;
+    color: black;
 }
 
 input[type="date"] {
-    background-color: #E0AB4E;
-    width: 30%;
-    height: 40px;
-    border-radius: 5px;
-    margin: 8% 35%;
-    color: #EEEEEE;
-    font-size: 15px;
+    color: black;
 }
 
 textarea[type="submit"] {
-    background-color: #E0AB4E;
-    width: 30%;
-    height: 40px;
-    border-radius: 5px;
-    margin: 8% 35%;
-    color: #EEEEEE;
-    font-size: 15px;
+    color: black;
 }
 
 .pending-donations {
