@@ -1,7 +1,6 @@
 class DonationsController < ApplicationController
-  before_action :authenticate_recipient!, except: [:new, :create]
+  before_action :authenticate_recipient!, except: [:new, :create, :show_donors]
   before_action :authenticate_donor!, except: [:index, :show] 
-
 
   def index
     @donations = Donation.all

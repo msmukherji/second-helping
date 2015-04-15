@@ -41,6 +41,7 @@ skip_before_action :verify_authenticity_token, only: [:confirm_by_text]
   end
 
   def confirm_by_text
+    #raise "Claim not found" unless Claim.where(id: params["Body"].to_i).count != 0
     if Claim.where(id: params["Body"].to_i).count != 0
       if params["AccountSid"] != Figaro.env.twilio_account_sid
         head :bad_request
