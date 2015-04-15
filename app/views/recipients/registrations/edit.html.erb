@@ -27,6 +27,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+      <%= f.check_box :text_alert %>
+      <%= f.label "Would you like to receive text alerts when your donation is claimed? (You will still receive an email)" %>
+  </div>
+
+  <div class="field">
+      <%= f.check_box :digest %>
+      <%= f.label "Would you like to receive a daily email listing available donations?" %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
