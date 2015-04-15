@@ -20,6 +20,17 @@
       <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirm password" %>
     </div>
 
+    <div class="field">
+      <div class="input-box">
+        <%= f.text_field :contact_number, :placeholder => "Contact number" %>
+      </div>
+    </div>
+
+    <div class="checkbox">
+      <%= f.check_box :text_alert  %> 
+         <label class="checkbox-label">Would you like to receive text alerts when your claim is approved? (You will still receive an email)</label>
+    </div>
+
     <div class="actions">
       <%= f.submit "Sign up" %>
     </div>
