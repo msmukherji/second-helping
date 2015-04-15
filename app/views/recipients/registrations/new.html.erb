@@ -21,6 +21,10 @@
     </div>
 
     <div class="field">
+      <%= f.text_field :contact_number, autofocus: true, :placeholder => "Contact number" %>
+    </div>
+
+    <div class="field">
       <%= f.check_box :text_alert %>
       <%= f.label "Would you like to receive text alerts when your claims are approved? (You will still receive emails)" %>
     </div>
