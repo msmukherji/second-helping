@@ -275,6 +275,18 @@
 	padding: 2px;
 }
 
+.close-individual {
+	position: relative;
+	width: 15%;
+	height: 9%;
+	color: white;
+	font-weight: bold;
+	background-color: #8d7058;
+	border-radius: 0px;
+	font-size: 16px;
+	padding: 2px;
+}
+
 .edit-receiver {
 	position: absolute;
 	top: 4%;
