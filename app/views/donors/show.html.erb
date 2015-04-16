@@ -3,9 +3,9 @@
 		<head>
 			<title>Second Helping</title>
 		</head>
-		<body>
+		<body ng-controller="DonorController">
 			<img class="donor-background-image" src="/images/farm1.jpeg" />
-				<div class="background-overlay">
+				<div class="donor-background-overlay">
 					<span class="welcome"> Welcome, <%=@donor.name%>! You're signed in. </span>
 				</div>
 				<div class="donor-header">
@@ -14,11 +14,8 @@
 						<img class="logo-image" src="images/paperbag.png" />
 					</div>
 				</div>
-				<div class="donate" ng-controller="DonorController">
+				<div class="donate" >
 					<%= token_tag %>
-					<div class="donor" ng-repeat="item in data.donors.donation">
-						<h2 class="donor-organization"> {{item.organization}} </h2>
-					</div>
 					<div class="donation">
 						<div class="first-input">
 							<input class="donor-donation" type="text" ng-model="donation.donor" placeholder="What are you donating today?"></input>
@@ -40,13 +37,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="pending-donations shadow" ng-controller="DonorsDonationsController">
-					<div class="donations" ng-repeat="item in data.donor.donations">
-						<div class="donations-scroll-window">
+				<div class="pending-donations shadow">
+					<div class="pending-scroll">
+						<div class="pending-individual-donations" ng-repeat="item in data.donations">
 							<span class="donors-donation-id"> {{item.donation_id}} </span>
-							<span class="donors-donation-time"> {{item.created_at}} </span>
-							<span class="donors-description"> {{item.description}} </span>
-							<span class="donors-pending"> {{item.claims.claimant}} </span>
+							<span class="donors-donation-name"> {{item.donation_name}} </span>
 						</div>
 					</div>
 				</div>

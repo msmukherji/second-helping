@@ -14,19 +14,21 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 			"auto_confirm": $scope.donation.autoConfirm,
 
 		}).success(function(data){
-			$scope.activeItem = ""
-	})
-}
+			$scope.donation = {}
+			getData()
+		})
+	}
+
+	var getData = function(){
+		$http.get("/donor/donations").success(function(data){
+
+			$scope.data = data;
+
+			console.log($scope)
+
+		});	
+	}
+
+	getData()
+	
 }]);
-
-donatingApp.controller("DonorsDonationsController", [ "$scope", "$http", function($scope, $http){
-
-	$http.get("/donor/donations").success(function(data){
-
-		$scope.data = data;
-
-		console.log($scope)
-
-	});
-
-}])
