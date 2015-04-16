@@ -24,7 +24,7 @@
 							<input class="donor-donation" type="text" ng-model="donation.donor" placeholder="What are you donating today?"></input>
 						</div>
 						<div class="second-input">
-							<textarea class="donation-description" type="text" ng-model="donation.donation" placeholder="Please describe what you are donating."></textarea>
+							<textarea class="donation-description" type="text" ng-model="donation.donation" placeholder="Please describe what you are donating in detail."></textarea>
 						</div>
 						<div class="third-input">
 							<textarea class="recipients-requirements" type="text" ng-model="donation.requirements" placeholder="Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or from a certain place?)"></textarea>
@@ -36,15 +36,18 @@
 						<div class="fifth-input">
 							<input type="checkbox" class="auto-confirm" ng-model="donation.autoConfirm"></input>
 							<label class="fifth-label">You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.</label>
-							<button class="submit-donation" ng-click="clickSubmit()">Submit your donation</button>
+							<button class="submit-donation button-shadow" ng-click="clickSubmit()">Submit your donation</button>
 						</div>
 					</div>
 				</div>
-				<div class="pending-donations" ng-controller="DonorsDonationsController">
-					<div class="donations" ng-repeat="item in data.donations">
-						<span class="donors-donation-id"> {{item.donation_id}} </span>
-						<span class="donors-description"> {{item.description}} </span>
-						<span class="donors-pending"> {{item.claims.claimant}} </span>
+				<div class="pending-donations shadow" ng-controller="DonorsDonationsController">
+					<div class="donations" ng-repeat="item in data.donor.donations">
+						<div class="donations-scroll-window">
+							<span class="donors-donation-id"> {{item.donation_id}} </span>
+							<span class="donors-donation-time"> {{item.created_at}} </span>
+							<span class="donors-description"> {{item.description}} </span>
+							<span class="donors-pending"> {{item.claims.claimant}} </span>
+						</div>
 					</div>
 				</div>
 				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>

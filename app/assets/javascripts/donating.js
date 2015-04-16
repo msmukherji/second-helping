@@ -14,19 +14,14 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 			"auto_confirm": $scope.donation.autoConfirm,
 
 		}).success(function(data){
-			
+			$scope.activeItem = ""
 	})
 }
-	
-
-	
-
-
 }]);
 
 donatingApp.controller("DonorsDonationsController", [ "$scope", "$http", function($scope, $http){
 
-	$http.get("/donations").success(function(data){
+	$http.get("/donor/donations").success(function(data){
 
 		$scope.data = data;
 
