@@ -15,18 +15,20 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 
 		}).success(function(data){
 			$scope.donation = {}
-	})
-}
+			getData()
+		})
+	}
+
+	var getData = function(){
+		$http.get("/donor/donations").success(function(data){
+
+			$scope.data = data;
+
+			console.log($scope)
+
+		});	
+	}
+
+	getData()
+	
 }]);
-
-donatingApp.controller("DonorsDonationsController", [ "$scope", "$http", function($scope, $http){
-
-	$http.get("/donor/donations").success(function(data){
-
-		$scope.data = data;
-
-		console.log($scope)
-
-	});
-
-}])
