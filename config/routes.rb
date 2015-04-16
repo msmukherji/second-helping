@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   post '/confirm_by_text'         => 'claims#confirm_by_text'
 
   get '/donor/donations'          => 'donations#show_donors'
+
 end
