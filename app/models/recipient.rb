@@ -13,6 +13,7 @@ class Recipient < ActiveRecord::Base
       if donation.donor.text_alert == true
         text_claim_notification claim
       end
+      return claim
     end
   end
 

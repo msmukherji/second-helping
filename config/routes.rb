@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'application#home'
   get '/donor'                    => 'donors#show', as: 'donor_root'
   get '/recipient'                => 'recipients#show', as: 'recipient_root'
-
+  get '/about'                    => 'infos#show'
 
   get '/donations'                => 'donations#index'
   get '/donations/:donation_id'   => 'donations#show'
