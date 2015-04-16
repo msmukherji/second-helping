@@ -22,7 +22,7 @@
 	position: absolute;
 	margin-top: 60px;
   top: 100px;
-  right: 15px;
+  right: 50px;
 }
 
 .mishka img{
@@ -34,7 +34,7 @@
 	position: absolute;
 	margin-top: 60px;
 	top: 100px;
-	margin-left: 15px;
+	margin-left: 60px;
 }
 
 .josh img{
@@ -70,13 +70,17 @@ footer{
 }
 
 .front-end{
-	position: relative;
-	margin-left: 100px;
+	position: absolute;
+	margin-top: 60px;
+  top: 100px;
+  right: 170px;
 }
 
 .back-end{
-	position: relative;
-	margin-right: 100px;
+	position: absolute;
+	margin-top: 60px;
+	top: 100px;
+	margin-left: 170px;
 }
 
 .row{
