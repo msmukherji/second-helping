@@ -92,10 +92,18 @@
 	position: absolute;
 	width: 25%;
 	top: 35%;
-	left: 15%;
+	left: 7%;
+	padding: 3%;
+	background-image: url('../images/brown-paper.jpg');
 	font-family: Verdana;
+	font-size: 25px;
 	line-height: 1.5;
-	color: #E0AB4E;
+	color: #474747;
+}
+
+.shadow {
+	-moz-box-shadow: -10px 10px 10px 0px black;
+	-webkit-box-shadow: -10px 10px 10px 0px black;
 }
 
 .bottom-image {
