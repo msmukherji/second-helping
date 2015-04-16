@@ -21,11 +21,21 @@
   right: 15px;
 }
 
+.mishka img{
+	border-radius: 300px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}
+
 .josh{
 	position: absolute;
 	margin-top: 43px;
 	top: 60px;
 	margin-left: 15px;
+}
+
+.josh img{
+	border-radius: 300px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
 }
 
 .about-header, .name-header, .about-backgrounds p{
