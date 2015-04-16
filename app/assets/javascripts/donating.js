@@ -14,7 +14,7 @@ donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, 
 			"auto_confirm": $scope.donation.autoConfirm,
 
 		}).success(function(data){
-			$scope.activeItem = ""
+			$scope.donation = {}
 	})
 }
 }]);

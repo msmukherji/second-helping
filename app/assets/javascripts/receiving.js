@@ -23,4 +23,8 @@ receivingApp.controller("RecipientController", [ "$scope", "$http", function($sc
 		})
 	}
 
+	$scope.clickClose = function() {
+		$scope.activeItem = ""
+	}
+
 }]);

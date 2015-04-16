@@ -6,7 +6,7 @@
 		</head>
 		<body>
 			<img class="recipient-background-image" src="/images/farm2.jpeg" />
-				<div class="background-overlay">
+				<div class="donations-background-overlay">
 					<span class="welcome"> Welcome, <%=@recipient.name%>! You're signed in. </span>
 				</div>
 				<div class="recipient-header">
@@ -49,7 +49,7 @@
 									<span class="individual-donor-contact"> {{activeItem.donor_contact}} </span>
 								</div>
 								<button class="claim-donation button-shadow" ng-click="clickClaim()">Claim this donation</button>
-								<button class="close-individual button-shadow" href="/recipient">Back to donations</button>
+								<button class="close-individual button-shadow" ng-click="clickClose()">Back to donations</button>
 							</div>
 					</div>
 				</div>

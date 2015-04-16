@@ -5,7 +5,7 @@
 		</head>
 		<body>
 			<img class="donor-background-image" src="/images/farm1.jpeg" />
-				<div class="background-overlay">
+				<div class="donor-background-overlay">
 					<span class="welcome"> Welcome, <%=@donor.name%>! You're signed in. </span>
 				</div>
 				<div class="donor-header">
@@ -41,7 +41,7 @@
 					</div>
 				</div>
 				<div class="pending-donations shadow" ng-controller="DonorsDonationsController">
-					<div class="donations" ng-repeat="item in data.donor.donations">
+					<div class="donations" ng-repeat="item in data.donations">
 						<div class="donations-scroll-window">
 							<span class="donors-donation-id"> {{item.donation_id}} </span>
 							<span class="donors-donation-time"> {{item.created_at}} </span>
