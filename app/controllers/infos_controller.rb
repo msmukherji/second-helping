@@ -1,4 +1,12 @@
 class InfosController < ApplicationController
-  def show
+  
+  def bio
   end
+
+  def screenshots
+  end
+
+  def tech
+  end
+
 end

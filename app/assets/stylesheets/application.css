@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+.mishka{
+	position: absolute;
+	margin-top: 43px;
+  top: 60px;
+  right: 15px;
+}
+
+.josh{
+	position: absolute;
+	margin-top: 43px;
+	top: 60px;
+	margin-left: 15px;
+}
+
+.about-header, .name-header, .about-backgrounds p{
+	font-family: Verdana;
+	color: #FDE04F;
+}
+
+.about-header{
+	position: relative;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+
+.name-header{
+	font-size: 25px;
+}
+
+.about-backgrounds p{
+	font-size: 20px;
+}
+
+
+/*.about-backgrounds{
+	background-image: url('../images/sky.jpeg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}*/
