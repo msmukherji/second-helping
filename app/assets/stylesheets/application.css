@@ -59,6 +59,12 @@
 	font-size: 20px;
 }
 
+footer{
+	font-family: Verdana;
+	position: fixed;
+	margin-top: 40px;
+}
+
 
 /*.about-backgrounds{
 	background-image: url('../images/sky.jpeg');
