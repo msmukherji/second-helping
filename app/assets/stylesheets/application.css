@@ -65,6 +65,19 @@ footer{
 	margin-top: 40px;
 }
 
+.front-end{
+	position: relative;
+	margin-left: 100px;
+}
+
+.back-end{
+	position: relative;
+	margin-right: 100px;
+}
+
+.row{
+	display: inline-block;
+}
 
 /*.about-backgrounds{
 	background-image: url('../images/sky.jpeg');
