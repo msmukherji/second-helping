@@ -14,10 +14,14 @@
  *= require_self
  */
 
+.page-container{
+
+}
+
 .mishka{
 	position: absolute;
-	margin-top: 43px;
-  top: 60px;
+	margin-top: 60px;
+  top: 100px;
   right: 15px;
 }
 
@@ -28,8 +32,8 @@
 
 .josh{
 	position: absolute;
-	margin-top: 43px;
-	top: 60px;
+	margin-top: 60px;
+	top: 100px;
 	margin-left: 15px;
 }
 
@@ -47,16 +51,16 @@
 	position: relative;
 	margin-top: 10px;
 	text-align: center;
-	font-size: 50px;
+	font-size: 100px;
 	margin-bottom: 20px;
 }
 
 .name-header{
-	font-size: 25px;
+	font-size: 50px;
 }
 
 .about-backgrounds p{
-	font-size: 20px;
+	font-size: 40px;
 }
 
 footer{
