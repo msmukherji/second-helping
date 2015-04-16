@@ -23,6 +23,7 @@ class DonationsController < ApplicationController
   end
 
   def show_donors
+    binding.pry
     @donor = current_donor
     render :show_donor, formats: [:json]
   end
