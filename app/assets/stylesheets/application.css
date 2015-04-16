@@ -45,6 +45,7 @@
 .about-header, .name-header, .about-backgrounds p{
 	font-family: Verdana;
 	color: #FDE04F;
+	text-shadow: 2px 2px #585858;
 }
 
 .about-header{
@@ -87,8 +88,7 @@ footer{
 	display: inline-block;
 }
 
-/*.about-backgrounds{
-	background-image: url('../images/sky.jpeg');
-	background-repeat: no-repeat;
-	background-size: cover;
-}*/
+body {
+    background-image: url("bluebackground.jpg");
+    background-color: #cccccc;
+}
