@@ -10,7 +10,7 @@ class Donor < ActiveRecord::Base
   def create_donation params
     Donation.create! name: params[:name], description: params[:description], 
       requirements: params[:requirements], donor_id: self.id, 
-      auto_confirm: params[:auto_confirm]
+      auto_confirm: params[:auto_confirm], expiration: params[:expiration]
   end
 
   def approve_claim claim
