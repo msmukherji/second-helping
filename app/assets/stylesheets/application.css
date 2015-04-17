@@ -88,7 +88,29 @@ footer{
 	display: inline-block;
 }
 
-body {
-    background-image: url("bluebackground.jpg");
-    background-color: #cccccc;
+body{
+/*	<%= image_tag("mishka.jpeg") /*url("bluebackground.jpg") %>	*/
+  background-image: url("http://www.wallpapersonview.com/wallpapers/4/abstract_colorful_textures_widescreen_desktop_background_picture-501.jpg");
+}
+
+.donor{
+	position: absolute;
+	margin-top: 60px;
+	top: 100px;
+	margin-left: 150px;
+}
+
+.donor img{
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}
+
+.recipient{
+	position: absolute;
+	margin-top: 60px;
+  top: 100px;
+  right: 150px;
+}
+
+.recipient img{
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
 }
