@@ -26,9 +26,9 @@
 .recipient-header {
 	width: 100%;
 	height: 15%;
-	background-color: #5b5b5b;
+	background-color: #8d7058;
 	position: relative;
-	top: 50px;
+	top: 55px;
 	margin-bottom: 5%;
 }
 
@@ -279,6 +279,7 @@
 	position: relative;
 	width: 15%;
 	height: 9%;
+	margin-left: 5%;
 	color: white;
 	font-weight: bold;
 	background-color: #8d7058;
@@ -289,10 +290,14 @@
 
 .edit-receiver {
 	position: absolute;
-	top: 4%;
-	right: 6%;
-	padding-bottom: 2px;
-	width: 9%;
+	width: 8%;
 	height: 3%;
-	border-radius: 4px;
+	top: 4%;
+	right: 5%;
+	color: black;
+	font-weight: bold;
+	background-color: #FDE04F;
+	border-radius: 0px;
+	font-size: 10px;
+	padding: 2px;
 }
