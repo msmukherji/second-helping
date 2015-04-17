@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150410184925) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "claims", force: :cascade do |t|
     t.integer  "donation_id"
     t.integer  "recipient_id"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20150410184925) do
     t.boolean  "text_alert"
   end
 
-  add_index "donors", ["email"], name: "index_donors_on_email", unique: true
-  add_index "donors", ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true
+  add_index "donors", ["email"], name: "index_donors_on_email", unique: true, using: :btree
+  add_index "donors", ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true, using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 20150410184925) do
     t.boolean  "digest"
   end
 
-  add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true
-  add_index "recipients", ["reset_password_token"], name: "index_recipients_on_reset_password_token", unique: true
+  add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true, using: :btree
+  add_index "recipients", ["reset_password_token"], name: "index_recipients_on_reset_password_token", unique: true, using: :btree
 
 end
