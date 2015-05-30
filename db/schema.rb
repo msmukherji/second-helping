@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407155007) do
+ActiveRecord::Schema.define(version: 20150410184925) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "claims", force: :cascade do |t|
     t.integer  "donation_id"
@@ -26,10 +29,12 @@ ActiveRecord::Schema.define(version: 20150407155007) do
     t.integer  "donor_id"
     t.text     "description"
     t.text     "requirements"
-    t.boolean  "auto_confirm", default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "auto_confirm",  default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.datetime "expiration"
+    t.string   "donor"
+    t.string   "donor_contact"
   end
 
   create_table "donors", force: :cascade do |t|
@@ -49,10 +54,11 @@ ActiveRecord::Schema.define(version: 20150407155007) do
     t.string   "contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "text_alert"
   end
 
-  add_index "donors", ["email"], name: "index_donors_on_email", unique: true
-  add_index "donors", ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true
+  add_index "donors", ["email"], name: "index_donors_on_email", unique: true, using: :btree
+  add_index "donors", ["reset_password_token"], name: "index_donors_on_reset_password_token", unique: true, using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
@@ -75,9 +81,12 @@ ActiveRecord::Schema.define(version: 20150407155007) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "contact_number"
+    t.boolean  "text_alert"
+    t.boolean  "digest"
   end
 
-  add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true
-  add_index "recipients", ["reset_password_token"], name: "index_recipients_on_reset_password_token", unique: true
+  add_index "recipients", ["email"], name: "index_recipients_on_email", unique: true, using: :btree
+  add_index "recipients", ["reset_password_token"], name: "index_recipients_on_reset_password_token", unique: true, using: :btree
 
 end

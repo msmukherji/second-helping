@@ -14,4 +14,5 @@
 //= require angular-ui-router
 //= require underscore
 //= require jquery
+//= require jquery_ujs
 //= require_tree .

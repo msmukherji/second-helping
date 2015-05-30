@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+	<html ng-app="donatingApp">
+		<head>
+			<title>Second Helping</title>
+		</head>
+		<body ng-controller="DonorController">
+			<img class="donor-background-image" src="/images/farm3.jpeg" />
+				<div class="donor-background-overlay">
+					<span class="welcome"> Welcome, <%=@donor.name%>! You're signed in. </span>
+				</div>
+				<div class="donor-header">
+					<h1 class="donor-headline">Make a Donation</h1>
+					<div>
+						<img class="logo-image" src="images/paperbag.png" />
+					</div>
+				</div>
+				<div class="donate" >
+					<%= token_tag %>
+					<div class="donation">
+						<div class="first-input">
+							<input class="donor-donation" type="text" ng-model="donation.donor" placeholder="What are you donating today?"></input>
+						</div>
+						<div class="second-input">
+							<textarea class="donation-description" type="text" ng-model="donation.donation" placeholder="Please describe what you are donating in detail."></textarea>
+						</div>
+						<div class="third-input">
+							<textarea class="recipients-requirements" type="text" ng-model="donation.requirements" placeholder="Are there any requirements that you have of the recipient? (Do they have to pick it up by a certain time or from a certain place?)"></textarea>
+						</div>
+						<div class="fourth-input">
+							<input class="recipients-expiration" type="date" ng-model="donation.expiration" placeholder="MM/DD/YYYY"></input>
+							<label class="fourth-label">If unclaimed, when should we remove this donation?</label>
+						</div>
+						<div class="fifth-input">
+							<input type="checkbox" class="auto-confirm" ng-model="donation.autoConfirm"></input>
+							<label class="fifth-label">You will receive an email when someone wants to claim your donation, so that you can approve. Clicking this box will disable that email and auto-approve the recipient.</label>
+							<button class="submit-donation button-shadow" ng-click="clickSubmit()">Submit your donation</button>
+						</div>
+					</div>
+				</div>
+				<div class="pending-donations shadow">
+					<div class="pending-scroll">
+						<div class="pending-individual-donations" ng-repeat="item in data.donations">
+							<span class="donors-donation-id"> {{item.donation_id}} </span>
+							<span class="donors-donation-name"> {{item.donation_name}} </span>
+						</div>
+					</div>
+				</div>
+				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+		</body>
+	</html>

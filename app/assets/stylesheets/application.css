@@ -13,3 +13,104 @@
  *= require_tree .
  *= require_self
  */
+
+.page-container{
+
+}
+
+.mishka{
+	position: absolute;
+	margin-top: 60px;
+  top: 100px;
+  right: 50px;
+}
+
+.mishka img{
+	border-radius: 300px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}
+
+.josh{
+	position: absolute;
+	margin-top: 60px;
+	top: 100px;
+	margin-left: 60px;
+}
+
+.josh img{
+	border-radius: 300px;
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}
+
+.about-header, .name-header, .about-backgrounds p{
+	font-family: Verdana;
+	color: #FDE04F;
+	text-shadow: 2px 2px #585858;
+}
+
+.about-header{
+	position: relative;
+	margin-top: 10px;
+	text-align: center;
+	font-size: 100px;
+	margin-bottom: 20px;
+}
+
+.name-header{
+	font-size: 50px;
+}
+
+.about-backgrounds p{
+	font-size: 40px;
+}
+
+footer{
+	font-family: Verdana;
+	position: fixed;
+	margin-top: 40px;
+}
+
+.front-end{
+	position: absolute;
+	margin-top: 60px;
+  top: 100px;
+  right: 170px;
+}
+
+.back-end{
+	position: absolute;
+	margin-top: 60px;
+	top: 100px;
+	margin-left: 170px;
+}
+
+.row{
+	display: inline-block;
+}
+
+body{
+/*	<%= image_tag("mishka.jpeg") /*url("bluebackground.jpg") %>	*/
+  background-image: url("http://www.wallpapersonview.com/wallpapers/4/abstract_colorful_textures_widescreen_desktop_background_picture-501.jpg");
+}
+
+.donor{
+	position: absolute;
+	margin-top: 60px;
+	top: 100px;
+	margin-left: 150px;
+}
+
+.donor img{
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}
+
+.recipient{
+	position: absolute;
+	margin-top: 60px;
+  top: 100px;
+  right: 150px;
+}
+
+.recipient img{
+	box-shadow: 0 0 40px rgba(0, 0, 0, .8);
+}

@@ -1,7 +1,6 @@
 class DonationsController < ApplicationController
-  before_action :authenticate_recipient!, except: [:new, :create]
+  before_action :authenticate_recipient!, except: [:new, :create, :show_donors]
   before_action :authenticate_donor!, except: [:index, :show] 
-
 
   def index
     @donations = Donation.all
@@ -21,6 +20,11 @@ class DonationsController < ApplicationController
   def create
     @donation = current_donor.create_donation params
     render :create, formats: [:json]
+  end
+
+  def show_donors
+    @donor = current_donor
+    render :show_donor, formats: [:json]
   end
 
 end

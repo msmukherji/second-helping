@@ -1,23 +1,54 @@
-<!-- <!DOCTYPE html>
-
-<html> -->
-<div ng-app="helperApp">
-	<!-- <head>
-		<title>Second Helping</title>
-		<link href="index.css" rel="stylesheet" />
-		<%= stylesheet_link_tag    'application', media: 'all' %>
-  		<%= javascript_include_tag 'application' %> 
-  		<%= csrf_meta_tags %>
-	</head> -->
-</div>
-	
-	<body ui-view>
-		<div ui-view="home">
-
+<!DOCTYPE html>
+<html ng-app="helperApp">
+	<head>
+		<title>Second Helping</title>		
+	</head>
+	<body>
+		<div class="background">
+			<img class="sky" src="images/new-sky.jpg" />
+			<div class="header">
+				<div class="logos">
+					<div>
+						<img class="logo-image" src="images/paperbag.png" />
+					</div>
+					<div>
+						<img class="logo-name" src="images/logo.png" />
+					</div>
+				</div>
+				<div class="sign-in-container">
+					<form class="donor-sign-in" method="POST" action="/donors/sign_in">
+						<%= token_tag %>
+						<h5 class="donor-sign-in-heading">Donor sign in</h5>
+						<input name="" type="email" id="donorID" class="inputs" placeholder="Donor email" required>
+						<input name="" type="password" id="donorPassword" class="inputs" placeholder="Password" required>
+						<button class="donor-button button-shadow">Sign in</button>
+						<a href="/donors/sign_up" class="new-user">New donor?</a>
+					</form>
+					<form class="recipient-sign-in" method="POST" action="/recipients/sign_in">
+						<%= token_tag %>
+						<h5 class="recipient-sign-in-heading">Recipient sign in</h5>
+						<input name="email" type="email" id="recipientID" class="inputs" placeholder="Recipient email" required>
+						<input name="password" type="password" id="recipientPassword" class="inputs" placeholder="Password" required>
+						<button class="recipient-button button-shadow">Sign in</button>
+						<a href="/recipients/sign_up" class="new-user">New recipient?</a>
+					</form>
+				</div>
+			</div>
+			<div class="mission shadow">
+				<p class="statement">Our mission is to make it easier for those with food to spare get it to those that need it most.</p>
+			</div>
+			<div class="bottom-image">
+				<div>
+					<img class="bottom-left" src="images/bottom-left.png" />
+				</div>
+				<div>
+					<img class="bottom-center" src="images/bottom-center.png" />
+					<a href="http://en.wikipedia.org/wiki/Bill_Emerson_Good_Samaritan_Act_of_1996" class="good-samaritan-link">Good Samaritan Law</a>
+				</div>
+				<div>
+					<img class="bottom-right" src="images/bottom-right.png" />
+				</div>
+			</div>
 		</div>
-
 	</body>
-
-
-
-<!-- </html> -->
+</html>

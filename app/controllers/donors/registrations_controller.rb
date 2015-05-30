@@ -57,10 +57,11 @@ class Donors::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
 
   private 
 
   def sign_up_params
-    params.require(:donor).permit(:email, :password, :name, :role, :contact_number, :organization_id)
+    params.require(:donor).permit(:email, :password, :name, :role, :contact_number, :organization_id, :text_alert)
   end
 end

@@ -1,29 +1,48 @@
-<div class="login-container">
-  <h2 class="log">New recipient sign up</h2>
+<!--
+<img class="recipient-login-image" src="/images/farm3.jpeg" />
+  <div class="recipient-login-overlay">
+  </div>
+-->
+  <div class="login-container">
+    <h2 class="log">New recipient sign up</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.text_field :name, autofocus: true, :placeholder => "Contact name" %>
-    </div>
+      <div class="field">
+        <%= f.text_field :name, autofocus: true, :placeholder => "Contact name" %>
+      </div>
 
-    <div class="field">
-      <%= f.email_field :email, :placeholder => "Email" %>
-    </div>
+      <div class="field">
+        <%= f.email_field :email, :placeholder => "Email" %>
+      </div>
 
-    <div class="field">
-      <%= f.password_field :password, autocomplete: "off", :placeholder => "Password" %>
-    </div>
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "off", :placeholder => "Password" %>
+      </div>
 
-    <div class="field">
-      <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirm password" %>
-    </div>
+      <div class="field">
+        <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirm password" %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.text_field :contact_number, :placeholder => "Contact number" %>
+      </div>
 
-<!--  <%= render "devise/shared/links" %>  -->
-</div>
+      <div class="field">
+        <%= f.check_box :text_alert %>
+        <%= f.label "Would you like to receive text alerts when your claims are approved? (You will still receive emails)" %>
+      </div>
+
+      <div class="field">
+        <%= f.check_box :digest %>
+        <%= f.label "Would you like to receive a daily email listing available donations?" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+
+  <!--  <%= render "devise/shared/links" %>  -->
+  </div>

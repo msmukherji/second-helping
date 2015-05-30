@@ -1,7 +1,9 @@
 json.donations @donations do |donation|
 	json.name donation.name
 	json.donation_id donation.id
-	json.organization donation.donor.organization
+	if donation.donor.organization
+		json.organization donation.donor.organization
+	end
 	json.description donation.description
 	json.requirements donation.requirements
 	if donation.claims

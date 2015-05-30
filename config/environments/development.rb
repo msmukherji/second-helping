@@ -50,6 +50,6 @@ Rails.application.configure do
   }
   # GET RID OF THIS STUFF LATER
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :smtp#:letter_opener
 
 end

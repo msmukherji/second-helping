@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+	<html ng-app="receivingApp">
+		<head>
+			<title>Second Helpings</title>
+			<link href="donations.css" rel="stylesheet" />
+		</head>
+		<body>
+			<img class="recipient-background-image" src="/images/farm2.jpeg" />
+				<div class="donations-background-overlay">
+					<span class="welcome"> Welcome, <%=@recipient.name%>! You're signed in. </span>
+				</div>
+				<div class="recipient-header">
+					<h1 class="recipient-headline">Available Donations</h1>
+					<div>
+						<img class="logo-image" src="images/paperbag.png" />
+					</div>
+				</div>
+				<div class="available-donations" ng-controller="RecipientController">
+					<%= token_tag %>
+					<div class="donation-block shadow" ng-repeat="item in data.donations">
+						<div class="scroll-window">
+							<span class="donation-id"> {{item.donation_id}} </span>
+							<span class="donation-name"> {{item.name}} </span>
+							<span class="description"> {{item.description}} </span>
+							<span class="organization"> {{item.organization}} </span>
+							<span class="requirements"><b>Requirements:</b> {{item.requirements}} </span>
+							<div class="claim" ng-repeat="claim in item.claims">
+								<span class="pending"> {{claim.claimant}} </span>
+								<span class="claimed"> {{claim.approved}} </span>
+							</div>
+						</div>
+						<button class="details button-shadow" href= "/recipients/donation/{{item.donation_id}}" ng-click="clickDetailsButton(item)">Details</button> 
+					</div>
+
+					<div class="active-item" ng-show="!!activeItem">
+						<img class="individual-background-image" src="/images/farm5.jpg" />
+							<div class="individual-background-overlay">
+							</div>
+							<div class="individual-logo">
+								<img class="active-logo-image" src="images/paperbag.png" />
+							</div>
+							<div class="individual-donation shadow">
+								<div class="individual-scroll-window">
+									<span class="individual-donation-id"> {{activeItem.donation_id}} </span>
+									<span class="individual-name"> {{activeItem.name}} </span>
+									<span class="individual-description"> {{activeItem.description}} </span>
+									<span class="individual-requirements"><b>Requirements:</b> {{activeItem.requirements}} </span>
+									<span class="individual-donor"> {{activeItem.donor}} </span>
+									<span class="individual-donor-contact"> {{activeItem.donor_contact}} </span>
+								</div>
+								<button class="claim-donation button-shadow" ng-click="clickClaim()">Claim this donation</button>
+								<button class="close-individual button-shadow" ng-click="clickClose()">Back to donations</button>
+							</div>
+					</div>
+				</div>
+				<button class="edit-receiver" href="/recipients/edit">Edit your details</button>
+			</div>
+		</body>
+	</html>

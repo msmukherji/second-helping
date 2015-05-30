@@ -1,0 +1,229 @@
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.donor-background-image {
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	background-attachment: fixed;
+}
+
+.donor-background-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	background-color: #094687;
+	top: 0;
+	right: 0;
+	opacity: .7;
+	background-attachment: fixed;
+}
+
+.donor-header {
+	width: 100%;
+	height: 15%;
+	background-color: #8d7058;
+	position: relative;
+	top: 55px;
+	margin-bottom: 5%;
+}
+
+.welcome {
+	position: absolute;
+	top: 1%;
+	right: 1%;
+	font-family: Verdana;
+	color: red;
+	font-size: 15px;
+}
+
+.donor-headline {
+	display: inline-block;
+	font-family: Verdana;
+	font-size: 35px;
+	text-align: center;
+	width: 40%;
+	color: white;
+	margin-left: 30%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+.logo-image {
+	display: inline-block;
+	position: absolute;
+}
+
+.donate {
+	width: 55%;
+	height: 80%;
+	display: inline-block;
+	position: relative;
+	margin-left: 10%;
+	font-family: Verdana;
+	font-size: 12px;
+}
+
+.donor {	
+	display: inline-block;
+}
+
+.donor-organization {
+	padding: 5% 15%;
+}
+
+.donation {
+	width: 100%;
+}
+
+.donor-donation {
+	position: relative;
+	display: inline-block;
+	width: 40%;
+	height: 25px;
+	color: black;
+	font-family: Verdana;
+	padding-left: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5%;
+	padding-right: 5px;
+}
+
+.donation-description {
+	position: relative;
+	display: inline-block;
+	width: 60%;
+	height: 50px;
+	color: black;
+	font-family: Verdana;
+	padding-left: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5%;
+	padding-right: 5px;
+}
+
+.recipients-requirements {
+	position: relative;
+	display: inline-block;
+	width: 60%;
+	height: 100px;
+	color: black;
+	font-family: Verdana;
+	padding-left: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 5%;
+	padding-right: 5px;
+}
+
+.fourth-label {
+	display: inline-block;
+	font-family: Verdana;
+	color: white;
+	vertical-align: top;
+}
+
+.recipients-expiration {
+	position: relative;
+	display: inline-block;
+	width: 32%;
+	height: 25px;
+	color: black;
+	font-family: Verdana;
+	padding-left: 5px;
+	padding-right: 2px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.fifth-input {
+	width: 70%;
+	margin-top:3%;
+}
+
+.auto-confirm {
+	display: inline-block;
+	position: relative;
+}
+
+.fifth-label {
+	display: inline-block;
+	position: relative;
+	font-family: Verdana;
+	color: white;
+	vertical-align: top;
+}
+
+.submit-donation {
+	position: relative;
+	width: 50%;
+	height: 15%;
+	color: white;
+	font-weight: bold;
+	background-color: #8d7058;
+	border-radius: 0px;
+	margin-top: 3%;
+	margin-left: 24%;
+	font-size: 15px;
+	padding: 2px;
+}
+
+.pending-donations {
+	position: relative;
+	display: inline-block;
+	width: 25%;
+	height: 440px;
+	vertical-align: top;
+	background-image: url('../images/brown-paper.jpg');
+	padding: 3%;
+	margin-right: 9%;
+}
+
+.pending-scroll {
+	position: relative;
+	overflow-y: scroll;
+	background-color: white;
+	width: 90%;
+	height: 350px;
+	margin-left: 5%;
+	padding: 3%;
+	font-family: Verdana;
+	line-height: 1.5;
+}
+
+.donors-donation-id {
+	display: none;
+}
+
+.donors-donation-name {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+	font-weight: bolder;
+	padding-bottom: 3%;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #CCCCCC;
+}
+
+.edit-donor {
+	position: absolute;
+	width: 8%;
+	height: 3%;
+	top: 4%;
+	right: 5%;
+	color: black;
+	font-weight: bold;
+	background-color: #FDE04F;
+	border-radius: 0px;
+	font-size: 10px;
+	padding: 2px;
+}

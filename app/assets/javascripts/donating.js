@@ -1,20 +1,34 @@
 var donatingApp = angular.module("donatingApp", ["ui.router"])
 
-// helperApp.config([ "$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider){
+donatingApp.controller("DonorController", [ "$scope", "$http", function($scope, $http){
 
-// 	$stateProvider
-// 		.state("home", { url:"", views:{ "home":{ templateUrl:"partials/home.html"}}})
+	$scope.clickSubmit = function() {
+		console.log($scope.donation)
 
-// 	$urlRouterProvider.otherwise("") 
+		$http.post("/donors/donation", {
 
-// }])
+			name: $scope.donation.donor,
+			description: $scope.donation.donation,
+			requirements: $scope.donation.requirements,
+			expiration: $scope.donation.expiration,
+			"auto_confirm": $scope.donation.autoConfirm,
 
-donatingApp.controller("DonorController", [ "$scope", "getData", function($scope, getData){
+		}).success(function(data){
+			$scope.donation = {}
+			getData()
+		})
+	}
 
-	getData("http://localhost:3000/donors", function(data){
+	var getData = function(){
+		$http.get("/donor/donations").success(function(data){
 
-		$scope.data = data
+			$scope.data = data;
 
-	});
+			console.log($scope)
 
+		});	
+	}
+
+	getData()
+	
 }]);

@@ -1,0 +1,11 @@
+Hi <%=@recipient.name%>
+Here are the second helpings that are available today.  Head over to the site to claim yours!
+<% @donations.each do |donation| %>
+	<%=donation.name %>
+		description: <%=donation.description %>
+		requirements: <%=donation.requirements %>
+		expiration: <%=donation.expiration %>
+<% end %>
+
+See you soon!
+Your friends at Second Helping
